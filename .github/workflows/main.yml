@@ -81,9 +81,6 @@ jobs:
           fi
           echo ::set-env name=CACHE_KEY::`md5sum CACHE_KEY.txt | awk '{ print $1 }'`
 
-      - name: Choco无进程安装wix
-        run: |
-          choco install --no-progress -y wixtoolset
 
       - name: Setup NuGet.exe for use with actions
         uses: NuGet/setup-nuget@v1.0.2
@@ -91,7 +88,11 @@ jobs:
       - name: nuget
         shell: powershell
         run: |
-          nuget restore
+          nuget restore QTTabBar
+
+      - name: Choco无进程安装wix
+        run: |
+          choco install --no-progress -y wixtoolset
 
       - name: qttabbar构建.
         if: env.ONLY_CACHE == 'false'
