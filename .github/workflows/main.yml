@@ -90,6 +90,7 @@ jobs:
         shell: cmd
         run: |
           cd qttabbar
+          nuget restore
 
           call vcvars32.bat
           cd ..\out
