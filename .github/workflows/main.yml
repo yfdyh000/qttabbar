@@ -85,12 +85,16 @@ jobs:
         run: |
           choco install --no-progress -y wixtoolset
 
+      - name: nuget
+        shell: powershell
+        run: |
+          nuget restore
+
       - name: qttabbar构建.
         if: env.ONLY_CACHE == 'false'
         shell: cmd
         run: |
           cd qttabbar
-          nuget restore
 
           call vcvars32.bat
           cd ..\out
