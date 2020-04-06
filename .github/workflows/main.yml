@@ -90,6 +90,9 @@ jobs:
         run: |
           nuget restore QTTabBar
 
+      - name: setup-msbuild
+        uses: microsoft/setup-msbuild@v1
+
       - name: Choco无进程安装wix
         run: |
           choco install --no-progress -y wixtoolset
