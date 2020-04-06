@@ -85,6 +85,9 @@ jobs:
         run: |
           choco install --no-progress -y wixtoolset
 
+      - name: Setup NuGet.exe for use with actions
+        uses: NuGet/setup-nuget@v1.0.2
+
       - name: nuget
         shell: powershell
         run: |
